@@ -61,6 +61,10 @@ unzip shell-lesson-data.zip
 #Enter the data folder 
 cd shell-lesson-data
 ```
+##Version Controlo With GIT
+You can use it for version control and to keep track of your changes. 
+See the following tutorial and the lifecycle overview below. 
+![git lifecycle]
 
 ### Tips, Tricks and Resources 
  * `~` Stands for your home folder (usually `/export/home/sNumber`)
