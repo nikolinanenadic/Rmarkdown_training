@@ -1,0 +1,67 @@
+---
+title: "RMarkdown and HPC Training"
+author: "Nikolina Nenadic"
+date: "17/12/2021"
+output: 
+  html_document:
+    toc: true
+    toc_float: true 
+    toc_depth: 3 
+    highlight: pygments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+# HPC Training
+This document is written to cover the tools, information and commands to run jobs on the Griffith Gowonda HPC cluster. 
+
+## Required Tools 
+You will need to have the following tools installed: 
+
+ * Registered account on Gowonda (use this [link](https://conf-ers.griffith.edu.au/display/GHCD/Griffith+HPC+Support+Request+Form) to apply)
+ * KiTTy - See [Download link](http://www.9bis.net/kitty/#!pages/download.md) Only for Windows users 
+ * R [Download Link](https://cran.r-project.org/bin/macosx/)
+ * R Studio [Download link](https://www.rstudio.com/products/rstudio/download/#download)
+
+## Login to Gowonda 
+We need to connect to the HPC by SSH-login to `gc-prd-hpclogin1.rcs.griffith.edu.au` (use your Griffith sNumber and password), using KiTTy for Windows or `ssh` command on MAC.
+
+Once you have logged in, you can create and navigate to your working directory. The `home` folder has ~100GB capacity, while the `scratch` folder is used for short term stoage and processing of raw files, with ~1TB storage. 
+
+### Basic Folder Navigation 
+List files and directories 
+```{bash}
+#List files and directories
+ls
+#long listing
+ls -lh
+```
+
+Create a new folder inside `scratch` to practice: 
+```{bash}
+#Create a New Directory
+mkdir ~/scratch/sandbox
+#enter the newly created folder
+cd ~/scratch/sandbox
+```
+
+Download files from the web using `wget` (bypass GU proxy first), as can be seen in \@ref(download-files)
+
+```{bash download-files}
+#Bypass proxy
+source ~/s2proxy.sh
+
+#Download the shell tutorial data
+wget https://idobar.github.io/shell-novice/data/shell-lesson-data.zip
+
+#Unzip the files from the archive
+unzip shell-lesson-data.zip
+
+#Enter the data folder 
+cd shell-lesson-data
+```
+
+### Tips, Tricks and Resources 
+ * `~` Stands for your home folder (usually `/export/home/sNumber`)
+ * A gallery of Rmarkdown syntax highlighting styles can be found [here](https://eranraviv.com/syntax-highlighting-style-in-rmarkdown/)
